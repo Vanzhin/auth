@@ -12,6 +12,8 @@ services:
     build:
       context: ./php-fpm
       dockerfile: Dockerfile
+      args:
+        - INSTALL_XDEBUG=${INSTALL_XDEBUG}
     ports:
       - '9010:9010'
     volumes:
