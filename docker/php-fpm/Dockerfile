@@ -33,7 +33,7 @@ RUN set -xe \
         opcache \
         zip \
         pdo \
-        pdo_mysql \
+        pdo_pgsql \
         bcmath \
         sockets \
     && pecl install \
