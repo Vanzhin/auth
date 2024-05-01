@@ -1,4 +1,4 @@
 /.env
-/db/postgres_data/
 /nginx/logs/
 
+/db/data/
