@@ -11,6 +11,10 @@ use Doctrine\Persistence\ObjectManager;
 
 class UserFixture extends Fixture
 {
+    public function __construct(private readonly UserFactory $userFactory)
+    {
+    }
+
     use FakerTools;
 
     const REFERENCE = 'user';
@@ -19,7 +23,7 @@ class UserFixture extends Fixture
     {
         $email = $this->getFaker()->email();
         $password = $this->getFaker()->password();
-        $user = (new  UserFactory())->create($email, $password);
+        $user = $this->userFactory->create($email, $password);
         $manager->persist($user);
         $manager->flush();
 

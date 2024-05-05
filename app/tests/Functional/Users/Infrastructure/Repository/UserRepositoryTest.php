@@ -20,11 +20,13 @@ class UserRepositoryTest extends WebTestCase
     private UserRepository $repository;
     private Generator $faker;
     private AbstractDatabaseTool $databaseTool;
+    private UserFactory $userFactory;
 
     public function setUp(): void
     {
         parent::setUp();
         $this->repository = static::getContainer()->get(UserRepository::class);
+        $this->userFactory = static::getContainer()->get(UserFactory::class);
         $this->faker = Factory::create();
         $this->databaseTool = static::getContainer()->get(DatabaseToolCollection::class)->get();
     }
@@ -34,7 +36,7 @@ class UserRepositoryTest extends WebTestCase
         // arrange
         $email = $this->faker->email();
         $password = $this->faker->password();
-        $user = (new UserFactory())->create($email, $password);
+        $user = $this->userFactory->create($email, $password);
 
         // act
         $this->repository->add($user);
