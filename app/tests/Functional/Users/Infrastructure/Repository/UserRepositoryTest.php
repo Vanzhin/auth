@@ -14,9 +14,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class UserRepositoryTest extends WebTestCase
 {
-    /**
-     * @var mixed|object|\Symfony\Component\DependencyInjection\Container|null
-     */
     private UserRepository $repository;
     private Generator $faker;
     private AbstractDatabaseTool $databaseTool;

@@ -1,6 +1,6 @@
 <?php
-declare(strict_types=1);
 
+declare(strict_types=1);
 
 namespace App\Users\Domain\Factory;
 
@@ -13,7 +13,7 @@ readonly class UserFactory
     {
     }
 
-    public function create(string $email, ?string $password)
+    public function create(string $email, ?string $password): User
     {
         $user = new User($email);
         $user->setPassword($password, $this->hasher);

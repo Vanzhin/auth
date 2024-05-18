@@ -1,6 +1,6 @@
 <?php
-declare(strict_types=1);
 
+declare(strict_types=1);
 
 namespace App\Users\Domain\Repository;
 
@@ -11,5 +11,4 @@ interface UserRepositoryInterface
     public function add(User $user): void;
 
     public function getByUlid(string $ulid): ?User;
-
 }

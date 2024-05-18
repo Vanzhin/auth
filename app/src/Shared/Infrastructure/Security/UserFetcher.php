@@ -1,6 +1,6 @@
 <?php
-declare(strict_types=1);
 
+declare(strict_types=1);
 
 namespace App\Shared\Infrastructure\Security;
 
@@ -22,6 +22,7 @@ readonly class UserFetcher implements UserFetcherInterface
 
         Assert::notNull($user, 'Current user not found.');
         Assert::isInstanceOf($user, AuthUserInterface::class, 'Invalid user type.');
+
         return $user;
     }
 }

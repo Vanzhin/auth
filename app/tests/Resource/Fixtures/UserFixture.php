@@ -1,6 +1,6 @@
 <?php
-declare(strict_types=1);
 
+declare(strict_types=1);
 
 namespace App\Tests\Resource\Fixtures;
 
@@ -11,13 +11,13 @@ use Doctrine\Persistence\ObjectManager;
 
 class UserFixture extends Fixture
 {
+    use FakerTools;
+
     public function __construct(private readonly UserFactory $userFactory)
     {
     }
 
-    use FakerTools;
-
-    const REFERENCE = 'user';
+    public const REFERENCE = 'user';
 
     public function load(ObjectManager $manager): void
     {

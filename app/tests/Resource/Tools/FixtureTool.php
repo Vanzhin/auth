@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Tests\Resource\Tools;
@@ -18,6 +19,7 @@ trait FixtureTool
     public function loadUserFixture(): User
     {
         $executor = $this->getDataBaseTool()->loadFixtures([UserFixture::class]);
+
         return $executor->getReferenceRepository()->getReference(UserFixture::REFERENCE);
     }
 }

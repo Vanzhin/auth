@@ -1,6 +1,6 @@
 <?php
-declare(strict_types=1);
 
+declare(strict_types=1);
 
 namespace App\Tests\Functional\Users\Infrastructure\Controller;
 
@@ -11,7 +11,7 @@ class GetMeActionTest extends WebTestCase
 {
     use FixtureTool;
 
-    public function test_get_me_action()
+    public function test_get_me_action(): void
     {
         $client = static::createClient();
         $user = $this->loadUserFixture();
@@ -30,9 +30,9 @@ class GetMeActionTest extends WebTestCase
 
         $client->setServerParameter('HTTP_AUTHORIZATION', sprintf('Bearer %s', $data['token']));
 
-        //act
+        // act
         $client->request('GET', '/api/users/me');
-        //assert
+        // assert
         $data = json_decode($client->getResponse()->getContent(), true);
         $this->assertEquals($user->getEmail(), $data['email']);
     }

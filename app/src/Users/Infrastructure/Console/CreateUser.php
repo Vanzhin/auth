@@ -1,6 +1,6 @@
 <?php
-declare(strict_types=1);
 
+declare(strict_types=1);
 
 namespace App\Users\Infrastructure\Console;
 
@@ -37,6 +37,7 @@ final class CreateUser extends Command
                 if (0 !== $violations->count()) {
                     throw new \Exception($violations->get(0)->getMessage());
                 }
+
                 return $input;
             }
         );
@@ -46,12 +47,27 @@ final class CreateUser extends Command
                 if (0 !== $violations->count()) {
                     throw new \Exception($violations->get(0)->getMessage());
                 }
+
                 return $input;
             }
         );
+        $repeat = $io->askHidden('re-enter password',
+            function (?string $input) use ($validator) {
+                $violations = $validator->validate($input, [new NotBlank(['allowNull' => true])]);
+                if (0 !== $violations->count()) {
+                    throw new \Exception($violations->get(0)->getMessage());
+                }
+
+                return $input;
+            }
+        );
+        if ($repeat !== $password) {
+            throw new \Exception('Password is not equal to re-enter password .');
+        }
         $user = $this->factory->create($email, $password);
         $this->repository->add($user);
         $io->success('User created successfully.');
+
         return Command::SUCCESS;
     }
 }

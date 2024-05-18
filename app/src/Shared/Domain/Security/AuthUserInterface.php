@@ -1,6 +1,6 @@
 <?php
-declare(strict_types=1);
 
+declare(strict_types=1);
 
 namespace App\Shared\Domain\Security;
 
@@ -12,5 +12,4 @@ interface AuthUserInterface extends UserInterface, PasswordAuthenticatedUserInte
     public function getUlid(): string;
 
     public function getEmail(): string;
-
 }

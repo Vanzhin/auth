@@ -1,6 +1,6 @@
 <?php
-declare(strict_types=1);
 
+declare(strict_types=1);
 
 namespace App\Users\Domain\Entity;
 
@@ -15,8 +15,7 @@ class User implements AuthUserInterface
 
     public function __construct(
         private readonly string $email,
-    )
-    {
+    ) {
         $this->ulid = UlidService::generate();
     }
 
@@ -38,7 +37,7 @@ class User implements AuthUserInterface
     public function getRoles(): array
     {
         return [
-            'ROLE_USER'
+            'ROLE_USER',
         ];
     }
 
@@ -56,10 +55,10 @@ class User implements AuthUserInterface
     {
         if (is_null($password)) {
             $this->password = null;
+
             return;
         }
 
         $this->password = $hasher->hash($this, $password);
     }
-
 }

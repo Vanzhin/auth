@@ -1,8 +1,8 @@
 <?php
+
 declare(strict_types=1);
 
-
-namespace App\Shared\Infrastructure\Service;
+namespace App\Users\Infrastructure\Service;
 
 use App\Users\Domain\Entity\User;
 use App\Users\Domain\Service\UserPasswordHasherInterface;

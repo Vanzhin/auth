@@ -1,6 +1,6 @@
 <?php
-declare(strict_types=1);
 
+declare(strict_types=1);
 
 namespace App\Shared\Application\EventListener;
 
@@ -9,24 +9,13 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class JWTCreatedListener
 {
-    /**
-     * @var RequestStack
-     */
     private RequestStack $requestStack;
 
-    /**
-     * @param RequestStack $requestStack
-     */
     public function __construct(RequestStack $requestStack)
     {
         $this->requestStack = $requestStack;
     }
 
-    /**
-     * @param JWTCreatedEvent $event
-     *
-     * @return void
-     */
     public function onJWTCreated(JWTCreatedEvent $event): void
     {
         $request = $this->requestStack->getCurrentRequest();
