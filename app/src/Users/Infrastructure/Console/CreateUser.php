@@ -20,9 +20,8 @@ final class CreateUser extends Command
 {
     public function __construct(
         private readonly UserRepository $repository,
-        private readonly UserFactory    $factory
-    )
-    {
+        private readonly UserFactory $factory
+    ) {
         parent::__construct();
     }
 

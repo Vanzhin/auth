@@ -8,5 +8,10 @@
         </id>
         <field name="email" type="string"/>
         <field name="password" type="string" nullable="true"/>
+        <field name="roles" type="json">
+            <options>
+                <option name="default">[]</option>
+            </options>
+        </field>
     </entity>
 </doctrine-mapping>

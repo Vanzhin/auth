@@ -10,8 +10,9 @@ use App\Users\Domain\Service\UserPasswordHasherInterface;
 
 class User implements AuthUserInterface
 {
-    private string $ulid;
+    private readonly string $ulid;
     private ?string $password = null;
+    private array $roles;
 
     public function __construct(
         private readonly string $email,
@@ -36,15 +37,17 @@ class User implements AuthUserInterface
 
     public function getRoles(): array
     {
-        return [
-            'ROLE_USER',
-        ];
+        $roles = $this->roles;
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
     }
 
     public function eraseCredentials(): void
     {
         // TODO: Implement eraseCredentials() method.
     }
+
 
     public function getUserIdentifier(): string
     {
