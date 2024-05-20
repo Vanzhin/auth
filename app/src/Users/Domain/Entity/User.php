@@ -12,11 +12,12 @@ class User implements AuthUserInterface
 {
     private readonly string $ulid;
     private ?string $password = null;
-    private array $roles;
+    private array $roles = [];
 
     public function __construct(
         private readonly string $email,
-    ) {
+    )
+    {
         $this->ulid = UlidService::generate();
     }
 

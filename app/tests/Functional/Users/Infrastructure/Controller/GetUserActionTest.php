@@ -7,11 +7,11 @@ namespace App\Tests\Functional\Users\Infrastructure\Controller;
 use App\Tests\Resource\Tools\FixtureTool;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class GetMeActionTest extends WebTestCase
+class GetUserActionTest extends WebTestCase
 {
     use FixtureTool;
 
-    public function test_get_me_action(): void
+    public function test_get_user_action(): void
     {
         $client = static::createClient();
         $user = $this->loadUserFixture();
@@ -31,9 +31,11 @@ class GetMeActionTest extends WebTestCase
         $client->setServerParameter('HTTP_AUTHORIZATION', sprintf('Bearer %s', $data['data']['token']));
 
         // act
-        $client->request('GET', '/api/users/me');
+        $client->request('GET', '/api/users/' . $user->getUlid());
         // assert
         $data = json_decode($client->getResponse()->getContent(), true);
         $this->assertEquals($user->getEmail(), $data['data']['email']);
+        $this->assertEquals($user->getUlid(), $data['data']['id']);
+
     }
 }
