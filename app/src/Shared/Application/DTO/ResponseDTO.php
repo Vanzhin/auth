@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Shared\Domain\VO;
+namespace App\Shared\Application\DTO;
 
-readonly class ResponseData implements \JsonSerializable
+readonly class ResponseDTO implements \JsonSerializable
 {
     public function __construct(
         private string $result,
@@ -34,6 +34,9 @@ readonly class ResponseData implements \JsonSerializable
         return $this->message;
     }
 
+    /**
+     * @return array<string,string>
+     */
     public function jsonSerialize(): array
     {
         return get_object_vars($this);

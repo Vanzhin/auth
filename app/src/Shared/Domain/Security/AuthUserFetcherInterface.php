@@ -9,5 +9,4 @@ interface AuthUserFetcherInterface
     public function getAuthUser(): AuthUserInterface;
 
     public function getAuthUserId(): string;
-
 }

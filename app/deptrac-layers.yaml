@@ -18,10 +18,11 @@ deptrac:
           regex: ./src/\w+/Domain/.*
 
   ruleset:
-    Infrastructure:
-      - Application,
-      - Domain
+    Domain: ~
+
     Application:
       - Domain
-    Domain:
 
+    Infrastructure:
+      - Domain
+      - Application

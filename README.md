@@ -63,6 +63,26 @@
    docker compose up -d
    ```
 
+## 6. Инфо для разработки
+   a. Проверить код на соответствие стилю 
+
+   ```shell
+    vendor/bin/php-cs-fixer fix --dry-run --diff
+   ```
+   b. Исправить код 
+
+   ```shell
+    vendor/bin/php-cs-fixer fix --diff
+   ```
+   c. Проверить соответствие зависимостей
+
+   ```shell
+    vendor/bin/deptrac analyse --config-file=deptrac-modules.yaml
+   ```
+
+   ```shell
+    vendor/bin/deptrac analyse --config-file=deptrac-layers.yaml
+   ```
 После чего, в браузере можно открыть страницу https://localhost
 
 *Profit !*

@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Shared\Infrastructure\Security;
 
-use App\Shared\Domain\Security\AuthUserInterface;
 use App\Shared\Domain\Security\AuthUserFetcherInterface;
+use App\Shared\Domain\Security\AuthUserInterface;
 use Symfony\Bundle\SecurityBundle\Security;
 use Webmozart\Assert\Assert;
 
-readonly class AuthAuthUserFetcher implements AuthUserFetcherInterface
+readonly class AuthUserFetcher implements AuthUserFetcherInterface
 {
     public function __construct(private Security $security)
     {

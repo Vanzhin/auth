@@ -14,9 +14,9 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/api/users/{ulid}', methods: ['GET'])]
 readonly class GetUserAction
 {
-    public function __construct(private UserAccessControl        $accessControl,
-                                private UserFetcherInterface     $userFetcher,
-                                private AuthUserFetcherInterface $authUserFetcher)
+    public function __construct(private UserAccessControl $accessControl,
+        private UserFetcherInterface $userFetcher,
+        private AuthUserFetcherInterface $authUserFetcher)
     {
     }
 

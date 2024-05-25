@@ -1,9 +1,6 @@
 deptrac:
   paths:
     - ./src
-  exclude_files:
-    - '#.*\/src\/.*\/Infrastructure\/Adapter\/.*#'
-    - '#.*\/src\/.*\/Infrastructure\/Api\/.*#'
   layers:
     - name: Shared
       collectors:
@@ -17,4 +14,4 @@ deptrac:
   ruleset:
     Users:
       - Shared
-
+    Shared: ~

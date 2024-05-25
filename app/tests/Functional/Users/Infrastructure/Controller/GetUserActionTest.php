@@ -31,11 +31,10 @@ class GetUserActionTest extends WebTestCase
         $client->setServerParameter('HTTP_AUTHORIZATION', sprintf('Bearer %s', $data['data']['token']));
 
         // act
-        $client->request('GET', '/api/users/' . $user->getUlid());
+        $client->request('GET', '/api/users/'.$user->getUlid());
         // assert
         $data = json_decode($client->getResponse()->getContent(), true);
         $this->assertEquals($user->getEmail(), $data['data']['email']);
         $this->assertEquals($user->getUlid(), $data['data']['id']);
-
     }
 }
