@@ -7,10 +7,8 @@ RUN apk add --update zip unzip grep wget bash supervisor
 
 RUN install-php-extensions redis gd intl pcntl pdo_pgsql pdo_mysql sockets zip amqp opcache bz2
 
-COPY supervisord.conf /etc/supervisor/supervisord.conf
+COPY ./conf.d/supervisord.conf /etc/supervisor/supervisord.conf
 RUN rm  -rf /tmp/* /var/cache/apk/*
 
 RUN echo user=root >>  /etc/supervisor/supervisord.conf
-CMD ["/usr/bin/supervisord","-n"]
-
-#CMD ["/usr/bin/supervisord","-c", "/etc/supervisor/supervisord.conf"]
+CMD ["/usr/bin/supervisord"]

@@ -2,3 +2,4 @@
 /nginx/logs/
 
 /db/data/
+/supervisor/log/
