@@ -1,3 +1,4 @@
 /.idea/
 
 app/.deptrac.cache
+/app/config/jwt/

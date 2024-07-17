@@ -61,3 +61,8 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 
 RUN mkdir -p /var/www/.composer && chown -R www-data /var/www/.composer
 #WORKDIR /app
+# выполняю команду генерации закрытого и открытого ключей для JWT
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["php-fpm"]
